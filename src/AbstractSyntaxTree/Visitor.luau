@@ -64,16 +64,22 @@ function Visitor:VisitNode(node)
     local isVisitLeader = not self.IsVisiting
     self.IsVisiting = true
 
-    if self.ShouldStopVisiting then
-        return
-    end
-
-    if self.Node then
+    if (not self.ShouldStopVisiting) and self.Node then
         visitorCall(self, node, self.Node)
     end
 
-    if self[node.Type] then
+    if (not self.ShouldStopVisiting) and self[node.Type] then
         visitorCall(self, node, self[node.Type])
+    end
+
+    if self.ShouldStopVisiting then
+        --// Cleanup
+        if isVisitLeader then
+            self.IsVisiting = false
+            self.ShouldStopVisiting = false
+        end
+
+        return
     end
 
     for _, node in node:GetChildren(true) do
@@ -85,6 +91,7 @@ function Visitor:VisitNode(node)
         end
     end
 
+    --// Cleanup
     if isVisitLeader then
         self.IsVisiting = false
         self.ShouldStopVisiting = false
