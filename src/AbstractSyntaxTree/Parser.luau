@@ -12,7 +12,6 @@ local Entities = require("./Entities")
 
 local Parser = {} :: Types.Parser
 
--- types
 type JoinsType = "bevel" | "miter" | "round"
 
 type KnownRichTextTag =
@@ -55,14 +54,15 @@ local CharacterMap = table.freeze {
     AMPERSAND = string.byte("&")
 }
 
--- XML name validation (XML 1.0 compatible ranges, practical for Luau)
+--[[ I had no idea how to check whether the characters were valid (XML's naming scheme is complicated), thanks StackOverflow and ChatGPT ]]
+--// XML name validation
 local function isXmlStartCharCodeValid(code: number): boolean
-    -- ASCII letters and underscore
+    --// ASCII letters and underscore
     if (code >= 65 and code <= 90) or (code >= 97 and code <= 122) or code == 95 then
         return true
     end
 
-    -- Unicode letter ranges (per XML 1.0, practical subset + astral)
+    --// Unicode letter ranges (per XML 1.0)
     if
         (code >= 0xC0 and code <= 0xD6) or (code >= 0xD8 and code <= 0xF6) or (code >= 0xF8 and code <= 0x2FF)
         or (code >= 0x370 and code <= 0x37D) or (code >= 0x37F and code <= 0x1FFF)
@@ -82,17 +82,17 @@ local function isXmlNameCharCodeValid(code: number): boolean
         return true
     end
 
-    -- digits 0-9
+    --// Digits 0-9
     if (code >= 48 and code <= 57) then
         return true
     end
 
-    -- hyphen, period, middle dot
+    --// hyphen, period, middle dot
     if code == 45 or code == 46 or code == 0x00B7 then
         return true
     end
 
-    -- Combining marks and other allowed ranges
+    --// Combining marks and other allowed ranges
     if (code >= 0x300 and code <= 0x36F) or (code >= 0x203F and code <= 0x2040) then
         return true
     end
