@@ -1,0 +1,11 @@
+# pesde related files
+/.pesde
+/pesde.lock
+/luau_packages
+/lune_packages
+
+# Rojo sourcemap
+/sourcemap.json
+
+# Build output
+/build

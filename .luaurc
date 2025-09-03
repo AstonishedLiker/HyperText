@@ -1,0 +1,8 @@
+{
+    "languageMode": "strict",
+    "aliases": {
+        "lune": "~/.lune/.typedefs/0.8.9/",
+        "pkg": "./luau_packages/",
+        "hypertext": "./src/"
+    }
+}

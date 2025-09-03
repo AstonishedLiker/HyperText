@@ -1,0 +1,9 @@
+{
+    "name": "HyperText",
+    "tree": {
+        "$path": "src",
+        "luau_packages": {
+            "$path": "luau_packages"
+        }
+    }
+}

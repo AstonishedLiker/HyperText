@@ -1,0 +1,15 @@
+return {
+    TextNode = require("./TextNode"),
+    BasicNode = require("./BasicNode"),
+    FontNode = require("./FontNode"),
+    StrokeNode = require("./StrokeNode"),
+    BoldNode = require("./BoldNode"),
+    ItalicNode = require("./ItalicNode"),
+    UnderlineNode = require("./UnderlineNode"),
+    StrikethroughNode = require("./StrikethroughNode"),
+    LineBreakNode = require("./LineBreakNode"),
+    UppercaseNode = require("./UppercaseNode"),
+    SmallcapsNode = require("./SmallcapsNode"),
+    MarkNode = require("./MarkNode"),
+    CommentNode = require("./CommentNode"),
+}

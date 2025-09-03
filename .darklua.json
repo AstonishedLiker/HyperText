@@ -1,0 +1,18 @@
+{
+    "generator": "retain_lines",
+    "rules": [
+        {
+            "current": {
+                "module_folder_name": "init",
+                "name": "path",
+                "use_luau_configuration": true
+            },
+            "rule": "convert_require",
+            "target": {
+                "indexing_style": "property",
+                "name": "roblox",
+                "rojo_sourcemap": "./sourcemap.json"
+            }
+        }
+    ]
+}
