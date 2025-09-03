@@ -1,6 +1,6 @@
 name = "astonishedliker/hypertext"
-version = "0.1.0"
-description = "A comprehensive set of utilities for Roblox RichText"
+version = "0.1.1"
+description = "A comprehensive set of utilities to safely manipulate Roblox RichText"
 authors = ["AstonishedLiker"]
 repository = "https://github.com/AstonishedLiker/HyperText"
 license = "MIT"
